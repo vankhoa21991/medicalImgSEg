@@ -96,15 +96,15 @@ if __name__ == '__main__':
     parser.add_argument('--test_ratio', type=float, default=0.2)
 
     # data path
-    parser.add_argument('--origin_data_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1-2_Training_Input')
-    parser.add_argument('--origin_GT_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1_Training_GroundTruth')
+    parser.add_argument('--origin_data_path', type=str, default='./data/ISIC2018_Task1-2_Training_Input')
+    parser.add_argument('--origin_GT_path', type=str, default='./data/ISIC2018_Task1_Training_GroundTruth')
     
-    parser.add_argument('--train_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1-2_Training_Input\\train/')
-    parser.add_argument('--train_GT_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1_Training_GroundTruth\\/train_GT/')
-    parser.add_argument('--valid_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1-2_Training_Input\\valid/')
-    parser.add_argument('--valid_GT_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1_Training_GroundTruth\\valid_GT/')
-    parser.add_argument('--test_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1-2_Training_Input\\test/')
-    parser.add_argument('--test_GT_path', type=str, default='F:\\IMRA_le\\Dataset\\ISIC2018_Task1_Training_GroundTruth\\test_GT/')
+    parser.add_argument('--train_path', type=str, default='./data/ISIC2018_Task1-2_Training_Input/train/')
+    parser.add_argument('--train_GT_path', type=str, default='./data/ISIC2018_Task1_Training_GroundTruth/train_GT/')
+    parser.add_argument('--valid_path', type=str, default='./data/ISIC2018_Task1-2_Training_Input/valid/')
+    parser.add_argument('--valid_GT_path', type=str, default='./data/ISIC2018_Task1_Training_GroundTruth/valid_GT/')
+    parser.add_argument('--test_path', type=str, default='./data/ISIC2018_Task1-2_Training_Input/test/')
+    parser.add_argument('--test_GT_path', type=str, default='./data/ISIC2018_Task1_Training_GroundTruth/test_GT/')
 
     config = parser.parse_args()
     print(config)

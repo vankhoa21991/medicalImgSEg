@@ -105,15 +105,17 @@ class Solver(object):
 		img = img*255
 		return img
 
-	def plot(self,SR, GT):
+	def plot(self,SR, GT, img):
 		SR =SR>0.5
-		SR = torch.squeeze(SR).numpy()*255
-		GT = torch.squeeze(GT == torch.max(GT)).numpy()*255
+		SR = torch.squeeze(SR).cpu().numpy()*255
+		GT = torch.squeeze(GT == torch.max(GT)).cpu().numpy()*255
 		fig= plt.figure()
-		fig.add_subplot(1,2,1)
+		fig.add_subplot(1,3,3)
 		plt.imshow(SR)
-		fig.add_subplot(1, 2, 2)
+		fig.add_subplot(1, 3, 2)
 		plt.imshow(GT)
+		fig.add_subplot(1, 3, 1)
+		plt.imshow(img.transpose_(1,3).transpose_(1,2)[0].cpu().numpy())
 		plt.show()
 
 	def train(self):
@@ -338,7 +340,7 @@ class Solver(object):
 			images = images.to(self.device)
 			GT = GT.to(self.device)
 			SR = F.sigmoid(self.unet(images))
-			self.plot(SR, GT)
+			self.plot(SR, GT, images)
 			acc += get_accuracy(SR, GT)
 			SE += get_sensitivity(SR, GT)
 			SP += get_specificity(SR, GT)
